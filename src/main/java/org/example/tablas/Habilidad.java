@@ -1,8 +1,6 @@
 package org.example.tablas;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +12,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "habilidad")
 public class Habilidad {
     @Id
+    @ManyToOne()
+    @JoinColumn(name = "id")
     private int id;
     private String nombre;
     private String descripcion;

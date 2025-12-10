@@ -1,8 +1,6 @@
 package org.example.tablas;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,9 +12,11 @@ import lombok.NoArgsConstructor;
 @Table(name = "personajes")
 public class Personajes {
     @Id
+    @OneToMany(mappedBy = "habilidad")
     private int id;
     private String nombre;
     private String alias;
+    @OneToOne(mappedBy = "Traje")
     private int id_traje;
 
 

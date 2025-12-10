@@ -1,6 +1,8 @@
 package org.example.tablas;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +13,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "participa")
 public class Participa {
+    @OneToMany(mappedBy = "Personajes")
     private int id_personaje;
+    @OneToOne(mappedBy = "Evento")
     private int id_evento;
     private Data fecha;
     private String rol;
