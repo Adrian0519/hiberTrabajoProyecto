@@ -24,4 +24,9 @@ public class Evento {
     @OneToMany(mappedBy = "Evento")
     private List <Participa>participantes;
 
+
+    public void agregarParticipantes(Participa participa){
+        participantes.add(participa);
+        participa.setEvento(this);
+    }
 }

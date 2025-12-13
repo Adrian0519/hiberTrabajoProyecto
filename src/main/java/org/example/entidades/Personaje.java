@@ -31,4 +31,14 @@ public class Personaje {
     @ManyToMany(mappedBy = "personajes")
     private List<Habilidad>habilidades;
 
+    public void agregarHabilidad(Habilidad habilidad){
+        habilidades.add(habilidad);
+        habilidad.getPersonajes().add(this);
+    }
+
+    public void agregarParticipacion(Participa participa){
+        participaciones.add(participa);
+        participa.setPersonaje(this);
+        
+    }
 }

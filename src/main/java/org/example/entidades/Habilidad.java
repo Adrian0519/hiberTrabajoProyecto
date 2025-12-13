@@ -24,4 +24,5 @@ public class Habilidad {
             inverseJoinColumns = @JoinColumn(name = "id_personaje")
     )
     private List<Personaje> personajes;
+
 }
