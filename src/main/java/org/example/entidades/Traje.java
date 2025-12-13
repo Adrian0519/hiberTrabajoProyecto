@@ -14,7 +14,7 @@ public class Traje {
     @Id
     private int id;
     @Column(nullable = false, length = 100)
-    private String especificaciones;
+    private String especificacion;
 
     @OneToOne(mappedBy = "traje")
     private Personaje personaje;

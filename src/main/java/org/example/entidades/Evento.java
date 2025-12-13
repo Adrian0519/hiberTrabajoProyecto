@@ -19,9 +19,9 @@ public class Evento {
     @Id
     private int id;
     private String nombre;
-    private String descripcion;
+    private String lugar;
 
-    @OneToMany(mappedBy = "Evento")
+    @OneToMany(mappedBy = "evento")
     private List <Participa>participantes;
 
 

@@ -1,5 +1,10 @@
 package org.example;
 
+import org.example.Repositorios.EventosR;
+import org.example.Repositorios.HabilidadR;
+import org.example.Repositorios.PersonajeR;
+import org.example.Repositorios.TrajeR;
+import org.example.entidades.Personaje;
 import org.hibernate.Session;
 
 import java.util.Scanner;
@@ -9,6 +14,10 @@ public class Main {
         Scanner scanner=new Scanner(System.in);
         int opciones=999999;
         Session session = HibernateUtil.get().openSession();
+        PersonajeR personajeR=new PersonajeR(session);
+        EventosR eventosR=new EventosR(session);
+        HabilidadR habilidadR=new HabilidadR(session);
+        TrajeR trajeR=new TrajeR(session);
         while (opciones!=0){
             System.out.println(
                             "1-Crear un personaje.\n" +
@@ -25,6 +34,19 @@ public class Main {
                             "12-Mostrar cuantos personajes tienen una habilidad concreta.\n"+
                             "0-Salir del programa.");
             opciones=scanner.nextInt();
+            scanner.nextLine();
+            switch (opciones){
+                case 1:
+                    System.out.println("Dime el nombre");
+                    String nombre= scanner.nextLine();
+                    System.out.println("Dime el alias");
+                    String alias=scanner.nextLine();
+                    personajeR.crearPersonaje(nombre,alias);
+                    break;
+                case 0:
+                    System.out.println("Adios");
+                    break;
+            }
         }
         session.close();
         System.out.println("Finalizando la conexion a MySQL");

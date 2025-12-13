@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "personajes")
+@Table(name = "personaje")
 
 public class Personaje {
     @Id
@@ -23,13 +23,19 @@ public class Personaje {
 
     @OneToOne
     @JoinColumn(name = "id_traje")
-    private int id_traje;
+    private Traje traje;
 
     @OneToMany(mappedBy = "personaje")
     private List<Participa>participaciones;
 
     @ManyToMany(mappedBy = "personajes")
     private List<Habilidad>habilidades;
+
+    public Personaje(int id, @NonNull String nombre, String alias) {
+        this.id = id;
+        this.nombre = nombre;
+        this.alias = alias;
+    }
 
     public void agregarHabilidad(Habilidad habilidad){
         habilidades.add(habilidad);
@@ -39,6 +45,6 @@ public class Personaje {
     public void agregarParticipacion(Participa participa){
         participaciones.add(participa);
         participa.setPersonaje(this);
-        
+
     }
 }
