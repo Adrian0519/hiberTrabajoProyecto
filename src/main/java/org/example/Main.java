@@ -55,9 +55,11 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Pasame el id del personaje a borrar");
-                    int Did= scanner.nextInt();
+                    int dId= scanner.nextInt();
                     scanner.nextLine();
-
+                    personajeR.borrarPersonaje(dId);
+                    break;
+                case 4:
                 case 0:
                     System.out.println("Adios");
                     break;
