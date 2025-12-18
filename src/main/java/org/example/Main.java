@@ -53,6 +53,11 @@ public class Main {
                     String aliasUp= scanner.nextLine();
                     personajeR.actualizarPersonaje(id,nombreUp,aliasUp);
                     break;
+                case 3:
+                    System.out.println("Pasame el id del personaje a borrar");
+                    int Did= scanner.nextInt();
+                    scanner.nextLine();
+
                 case 0:
                     System.out.println("Adios");
                     break;

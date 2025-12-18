@@ -30,22 +30,25 @@ public class PersonajeR {
 
     public void actualizarPersonaje(int id, String nombre, String alias) {
         Transaction tx = null;
+        String sentencia = "select p from Personaje p where p.id= :id";
         try {
             tx = session.beginTransaction();
-            Personaje personaje = session.get(Personaje.class, id);
+            Personaje personaje =(Personaje) session.createQuery(sentencia)
+                    .setParameter("id", id)
+                    .uniqueResult();
             if (personaje == null) {
                 System.out.println("No existe el personaje");
+                tx.rollback();
                 return;
             }
             personaje.setNombre(nombre);
             personaje.setAlias(alias);
             tx.commit();
-            System.out.println("Personaje actualizado");
-
+            System.out.println("Personaje actualizado correctamente");
         } catch (Exception e) {
-            System.out.println("error en la actualizacion");
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
         }
     }
-
 
 }
