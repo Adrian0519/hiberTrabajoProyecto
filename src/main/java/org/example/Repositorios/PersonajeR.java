@@ -27,4 +27,25 @@ public class PersonajeR {
             System.out.println("Error en la creacion " + e);
         }
     }
+
+    public void actualizarPersonaje(int id, String nombre, String alias) {
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Personaje personaje = session.get(Personaje.class, id);
+            if (personaje == null) {
+                System.out.println("No existe el personaje");
+                return;
+            }
+            personaje.setNombre(nombre);
+            personaje.setAlias(alias);
+            tx.commit();
+            System.out.println("Personaje actualizado");
+
+        } catch (Exception e) {
+            System.out.println("error en la actualizacion");
+        }
+    }
+
+
 }

@@ -21,8 +21,8 @@ public class Main {
         while (opciones!=0){
             System.out.println(
                             "1-Crear un personaje.\n" +
-                            "2-Modificar un personaje" +
-                            "3-Borrar un personaje" +
+                            "2-Modificar un personaje.\n" +
+                            "3-Borrar un personaje.\n" +
                             "4-Crear una habilidad " +
                             "5-borrar (por nombre) una habilidad" +
                             "6-modificar una habilidad.\n" +
@@ -42,6 +42,16 @@ public class Main {
                     System.out.println("Dime el alias");
                     String alias=scanner.nextLine();
                     personajeR.crearPersonaje(nombre,alias);
+                    break;
+                case 2:
+                    System.out.println("Dime el id del personaje ");
+                    int id= scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Inserta el nombre del personaje");
+                    String nombreUp=scanner.nextLine();
+                    System.out.println("Dime su alias");
+                    String aliasUp= scanner.nextLine();
+                    personajeR.actualizarPersonaje(id,nombreUp,aliasUp);
                     break;
                 case 0:
                     System.out.println("Adios");
