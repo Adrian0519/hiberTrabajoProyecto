@@ -1,8 +1,11 @@
 package org.example.Repositorios;
 
 import org.example.entidades.Habilidad;
+import org.example.entidades.Personaje;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.util.List;
 
 public class HabilidadR {
     private Session session;
@@ -25,6 +28,27 @@ public class HabilidadR {
             System.out.println("creada exitosamente");
         } catch (Exception e) {
             System.out.println("error en la creacion de la habilidad");
+        }
+    }
+
+    public void borrarHabilidad(String borrar){
+        Transaction transaction=null;
+        String buscarhablidad="from Habilidad h where h.nombre = :nombre";
+        try {
+            transaction= session.beginTransaction();
+            Habilidad habilidad= (Habilidad) session.createQuery(buscarhablidad)
+                    .setParameter("nombre",borrar)
+                    .uniqueResult();
+            List <Personaje> list=habilidad.getPersonajes();
+            for (int i = 0; i <list.size() ; i++) {
+                list.get(i).getHabilidades().remove(habilidad);
+            }
+            habilidad.getPersonajes().clear();
+            session.remove(habilidad);
+            transaction.commit();
+            System.out.println("Eliminacion realizada");
+        } catch (Exception e) {
+            System.out.println("Error en la eliminacion");
         }
     }
 }

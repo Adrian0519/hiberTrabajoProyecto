@@ -23,8 +23,8 @@ public class Main {
                             "1-Crear un personaje.\n" +
                             "2-Modificar un personaje.\n" +
                             "3-Borrar un personaje.\n" +
-                            "4-Crear una habilidad " +
-                            "5-borrar (por nombre) una habilidad" +
+                            "4-Crear una habilidad.\n" +
+                            "5-borrar (por nombre) una habilidad.\n" +
                             "6-modificar una habilidad.\n" +
                             "7-Asignar una habilidad a un personaje (la asignación se hará a partir del nombre del personaje y el nombre de la habilidad).\n" +
                             "8-Registrar la participación de un personaje en un evento con un rol concreto y una fecha (Se pedirá por teclado el nombre del personaje, el nombre del evento, el rol y la fecha de participación).\n" +
@@ -65,6 +65,11 @@ public class Main {
                     System.out.println("En que consiste");
                     String descripcionH= scanner.nextLine();
                     habilidadR.crearHabilidadees(nombreH,descripcionH);
+                    break;
+                case 5:
+                    System.out.println("Dime el nombre de la habilidad ");
+                    String habilidadNombre= scanner.nextLine();
+                    habilidadR.borrarHabilidad(habilidadNombre);
                     break;
                 case 0:
                     System.out.println("Adios");
