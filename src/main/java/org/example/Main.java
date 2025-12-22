@@ -60,6 +60,12 @@ public class Main {
                     personajeR.borrarPersonaje(dId);
                     break;
                 case 4:
+                    System.out.println("Dime el nombre de la habilidad");
+                    String nombreH= scanner.nextLine();
+                    System.out.println("En que consiste");
+                    String descripcionH= scanner.nextLine();
+                    habilidadR.crearHabilidadees(nombreH,descripcionH);
+                    break;
                 case 0:
                     System.out.println("Adios");
                     break;

@@ -17,12 +17,20 @@ public class Habilidad {
     private String nombre;
     private String descripcion;
 
+    public Habilidad(int id, String nombre, String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+
     @ManyToMany
     @JoinTable(
             name = "Personaje_Habilidad",
             joinColumns = @JoinColumn(name ="id_habilidad"),
             inverseJoinColumns = @JoinColumn(name = "id_personaje")
     )
+
+
     private List<Personaje> personajes;
 
 }
