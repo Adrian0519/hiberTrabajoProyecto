@@ -107,6 +107,11 @@ public class Main {
                     String especificacionTraje=scanner.nextLine();
                     trajeR.asignarTraje(especificacionTraje,asignarTraje);
                     break;
+                case 10:
+                    System.out.println("Dime la id");
+                    int idMostrar=scanner.nextInt();
+                    scanner.nextLine();
+                    personajeR.mostrarPersonaje(idMostrar);
                 case 0:
                     System.out.println("Adios");
                     break;

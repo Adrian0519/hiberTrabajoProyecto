@@ -94,5 +94,35 @@ public class PersonajeR {
         }
     }
 
+    public void mostrarPersonaje(int id){
+        String sentencia="select p from Personaje p left join fetch p.traje t where p.id= :id";
+        try {
+            Personaje personaje=(Personaje) session.createQuery(sentencia)
+                    .setParameter("id",id)
+                    .uniqueResult();
+            personaje.getHabilidades().size();
+            personaje.getParticipaciones().forEach(pa->{
+                if (pa.getEvento()!=null){
+                    pa.getEvento().getNombre();
+                }
+            });
+            System.out.println(personaje.getNombre() + " " + personaje.getAlias() + " " + personaje.getId());
+            if (personaje.getTraje()!=null){
+                System.out.println(personaje.getTraje().getEspecificacion());
+            }
+            personaje.getHabilidades().forEach(pa->{
+                System.out.println(pa.getNombre());
+            });
+            personaje.getParticipaciones().forEach(pa->{
+                System.out.println(pa.getEvento().getNombre());
+                System.out.println(pa.getEvento().getLugar());
+                System.out.println(pa.getRol());
+                System.out.println(pa.getFecha());
+            });
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }
