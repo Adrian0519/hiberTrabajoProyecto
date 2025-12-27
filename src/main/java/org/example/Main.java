@@ -80,6 +80,12 @@ public class Main {
                     System.out.println("Y su descripcion");
                     String nDesc= scanner.nextLine();
                     habilidadR.modificarHabilidad(idhablidadMod,nNombre,nDesc);
+                case 7:
+                    System.out.println("Dime la habilidad que quieres asignar");
+                    String habilidadAsignable=scanner.nextLine();
+                    System.out.println("Dime el usuario de la habilidad");
+                    String nombreEjecutor= scanner.nextLine();
+                    habilidadR.asignarHabilidadPersonaje(nombreEjecutor,habilidadAsignable);
                 case 0:
                     System.out.println("Adios");
                     break;

@@ -69,7 +69,31 @@ public class HabilidadR {
             transaction.commit();
             System.out.println("Se actualizaron los dastos");
         } catch (Exception e) {
-            System.out.println("Error en la modificacion " +e.getMessage());
+            System.out.println("Error en la modificacion ");
+        }
+    }
+
+    public void asignarHabilidadPersonaje(String usuario, String habilidad){
+        Transaction transaction=null;
+        String sentenciaHabilidad="select h from Habilidad h where h.nombre=:nombre";
+        String sentenciaPersonaje="select p from Personaje p where p.nombre=:nombre";
+        try {
+            transaction=session.beginTransaction();
+            Personaje personaje=(Personaje)session.createQuery(sentenciaPersonaje)
+                    .setParameter("nombre",usuario)
+                    .uniqueResult();
+            Habilidad habilidad1=(Habilidad)session.createQuery(sentenciaHabilidad)
+                    .setParameter("nombre",habilidad)
+                    .uniqueResult();
+            if (personaje==null || habilidad1 ==null){
+                System.out.println("uno de los datos es incorrecto");
+                return;
+            }
+           personaje.agregarHabilidad(habilidad1);
+            transaction.commit();
+            System.out.println("habilidad agregada exitosamente");
+        } catch (Exception e) {
+            System.out.println("error en la asignacion " +e.getMessage());
         }
     }
 }
