@@ -71,6 +71,15 @@ public class Main {
                     String habilidadNombre= scanner.nextLine();
                     habilidadR.borrarHabilidad(habilidadNombre);
                     break;
+                case 6:
+                    System.out.println("Dime el id de la habilidad que deseas modificar");
+                    int idhablidadMod= scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Dime su nombre");
+                    String nNombre=scanner.nextLine();
+                    System.out.println("Y su descripcion");
+                    String nDesc= scanner.nextLine();
+                    habilidadR.modificarHabilidad(idhablidadMod,nNombre,nDesc);
                 case 0:
                     System.out.println("Adios");
                     break;

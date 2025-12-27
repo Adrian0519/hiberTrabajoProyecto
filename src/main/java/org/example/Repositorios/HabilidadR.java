@@ -51,4 +51,25 @@ public class HabilidadR {
             System.out.println("Error en la eliminacion");
         }
     }
+
+    public void modificarHabilidad(int id,String nombre, String des){
+        Transaction transaction=null;
+        String sentencia="select h from Habilidad h where h.id=:id";
+        try {
+            transaction= session.beginTransaction();
+            Habilidad habilidad=(Habilidad) session.createQuery(sentencia)
+                    .setParameter("id",id)
+                    .uniqueResult();
+            if (habilidad==null){
+                System.out.println("No hay ninguna Habilidad con dicha id ");
+                return;
+            }
+            habilidad.setNombre(nombre);
+            habilidad.setDescripcion(des);
+            transaction.commit();
+            System.out.println("Se actualizaron los dastos");
+        } catch (Exception e) {
+            System.out.println("Error en la modificacion " +e.getMessage());
+        }
+    }
 }
