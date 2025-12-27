@@ -7,6 +7,7 @@ import org.example.Repositorios.TrajeR;
 import org.example.entidades.Personaje;
 import org.hibernate.Session;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
@@ -86,6 +87,19 @@ public class Main {
                     System.out.println("Dime el usuario de la habilidad");
                     String nombreEjecutor= scanner.nextLine();
                     habilidadR.asignarHabilidadPersonaje(nombreEjecutor,habilidadAsignable);
+                    break;
+                case 8:
+                    System.out.println("Dime el nombre del particpante");
+                    String nombreParticipante=scanner.nextLine();
+                    System.out.println("Donde participa");
+                    String eventoParticipa=scanner.nextLine();
+                    System.out.println("Que rol");
+                    String rol= scanner.nextLine();
+                    System.out.println("Y ahora la fecha");
+                    String fecha=scanner.nextLine();
+                    LocalDate localDate=LocalDate.parse(fecha);
+                    eventosR.participacionEvento(nombreParticipante,eventoParticipa,rol,localDate);
+                    break;
                 case 0:
                     System.out.println("Adios");
                     break;
