@@ -100,6 +100,13 @@ public class Main {
                     LocalDate localDate=LocalDate.parse(fecha);
                     eventosR.participacionEvento(nombreParticipante,eventoParticipa,rol,localDate);
                     break;
+                case 9:
+                    System.out.println("Dime el nombre del personaje");
+                    String asignarTraje=scanner.nextLine();
+                    System.out.println("Que traje le vas a equipar");
+                    String especificacionTraje=scanner.nextLine();
+                    trajeR.asignarTraje(especificacionTraje,asignarTraje);
+                    break;
                 case 0:
                     System.out.println("Adios");
                     break;

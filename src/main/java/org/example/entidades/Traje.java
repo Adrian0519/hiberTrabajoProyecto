@@ -18,6 +18,11 @@ public class Traje {
 
     @OneToOne(mappedBy = "traje")
     private Personaje personaje;
+
+    public Traje(int id, String especificacion) {
+        this.id = id;
+        this.especificacion = especificacion;
+    }
 }
 
 
