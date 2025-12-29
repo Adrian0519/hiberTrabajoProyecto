@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class EventosR {
     private Session session;
@@ -50,6 +51,21 @@ public class EventosR {
             System.out.println("participacion registrada");
         } catch (Exception e) {
             System.out.println("error en la creacion de la participacion");
+        }
+    }
+
+    public void participaEnEvento(String nombreEvento){
+        String consulta="select p from Personaje p inner join p.participaciones pa inner join pa.evento e where e.nombre = :nombre";
+        try {
+            List <Personaje>list= (List<Personaje>) session.createQuery(consulta)
+                    .setParameter("nombre",nombreEvento)
+                    .list();
+            for (int i = 0; i < list.size(); i++) {
+                Personaje personaje=list.get(i);
+                System.out.println(personaje.getNombre());
+            }
+        } catch (Exception e) {
+            System.out.println("Error en la consulta, el evento no existe");
         }
     }
 }
