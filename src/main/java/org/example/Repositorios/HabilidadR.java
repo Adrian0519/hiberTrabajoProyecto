@@ -106,7 +106,7 @@ public class HabilidadR {
             List <Personaje> list=habilidad.getPersonajes();
             System.out.println("La cantidad de personajes que utilizan dicha habilidad es " + list.size());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error en la consulta , comprueba los datos introducidos");
         }
     }
 }
