@@ -96,4 +96,17 @@ public class HabilidadR {
             System.out.println("error en la asignacion " +e.getMessage());
         }
     }
+
+    public void filtrarXHabilidades(String habilidadComparativa){
+        String consulta="select a from Habilidad a where a.nombre= :nombre";
+        try {
+            Habilidad habilidad=(Habilidad) session.createQuery(consulta)
+                    .setParameter("nombre",habilidadComparativa)
+                    .uniqueResult();
+            List <Personaje> list=habilidad.getPersonajes();
+            System.out.println("La cantidad de personajes que utilizan dicha habilidad es " + list.size());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

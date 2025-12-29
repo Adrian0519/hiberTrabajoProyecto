@@ -117,6 +117,11 @@ public class Main {
                     String nombreEvento= scanner.nextLine();
                     eventosR.participaEnEvento(nombreEvento);
                     break;
+                case 12:
+                    System.out.println("Dime la habilidad ");
+                    String habilidadHeroe=scanner.nextLine();
+                    habilidadR.filtrarXHabilidades(habilidadHeroe);
+                    break;
                 case 0:
                     System.out.println("Adios");
                     break;
