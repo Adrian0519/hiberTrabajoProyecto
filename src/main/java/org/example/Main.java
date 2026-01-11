@@ -112,6 +112,7 @@ public class Main {
                     int idMostrar=scanner.nextInt();
                     scanner.nextLine();
                     personajeR.mostrarPersonaje(idMostrar);
+                    break;
                 case 11:
                     System.out.println("Dime en que evento quieres mirar");
                     String nombreEvento= scanner.nextLine();

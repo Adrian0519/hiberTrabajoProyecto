@@ -101,24 +101,28 @@ public class PersonajeR {
                     .setParameter("id",id)
                     .uniqueResult();
             personaje.getHabilidades().size();
-            personaje.getParticipaciones().forEach(pa->{
-                if (pa.getEvento()!=null){
+            for (int i = 0; i < personaje.getParticipaciones().size(); i++) {
+                Participa pa = personaje.getParticipaciones().get(i);
+                if (pa.getEvento() != null) {
                     pa.getEvento().getNombre();
                 }
-            });
-            System.out.println(personaje.getNombre() + " " + personaje.getAlias() + " " + personaje.getId());
-            if (personaje.getTraje()!=null){
-                System.out.println(personaje.getTraje().getEspecificacion());
             }
-            personaje.getHabilidades().forEach(pa->{
-                System.out.println(pa.getNombre());
-            });
-            personaje.getParticipaciones().forEach(pa->{
-                System.out.println(pa.getEvento().getNombre());
-                System.out.println(pa.getEvento().getLugar());
-                System.out.println(pa.getRol());
-                System.out.println(pa.getFecha());
-            });
+            System.out.println(personaje.getNombre() + " tiene el alias " + personaje.getAlias() + " y se corresponde de con la id " + personaje.getId());
+            if (personaje.getTraje()!=null){
+                System.out.println("El traje es " + personaje.getTraje().getEspecificacion());
+            }
+            for (int i = 0; i < personaje.getHabilidades().size(); i++) {
+                Habilidad habilidad=personaje.getHabilidades().get(i);
+                System.out.println("Su habilidad " + habilidad.getNombre());
+            }
+            for (int i = 0; i < personaje.getParticipaciones().size(); i++) {
+                Participa pa = personaje.getParticipaciones().get(i);
+                System.out.println("El nombre del evento " + pa.getEvento().getNombre());
+                System.out.println("El evento es en el lugar " + pa.getEvento().getLugar());
+                System.out.println("Tiene el rol de  " + pa.getRol());
+                System.out.println("En la fecha " + pa.getFecha());
+            }
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
