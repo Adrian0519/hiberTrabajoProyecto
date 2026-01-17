@@ -16,7 +16,7 @@ public class Traje {
     @Column(nullable = false, length = 100)
     private String especificacion;
 
-    @OneToOne(mappedBy = "traje")
+    @OneToOne(mappedBy = "traje",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Personaje personaje;
 
     public Traje(int id, String especificacion) {

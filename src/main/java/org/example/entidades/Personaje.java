@@ -21,11 +21,11 @@ public class Personaje {
     private String nombre;
     private String alias;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "id_traje")
     private Traje traje;
 
-    @OneToMany(mappedBy = "personaje")
+    @OneToMany(mappedBy = "personaje",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Participa>participaciones;
 
     @ManyToMany(mappedBy = "personajes")

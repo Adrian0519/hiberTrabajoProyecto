@@ -1,9 +1,6 @@
 package org.example.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +18,7 @@ public class Evento {
     private String nombre;
     private String lugar;
 
-    @OneToMany(mappedBy = "evento")
+    @OneToMany(mappedBy = "evento",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List <Participa>participantes;
 
 

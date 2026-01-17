@@ -32,4 +32,8 @@ public class Habilidad {
 
     private List<Personaje> personajes;
 
+    public void addPersonaje(Personaje personaje){
+        personajes.add(personaje);
+        personaje.getHabilidades().add(this);
+    }
 }
