@@ -66,18 +66,6 @@ public class PersonajeR {
                 return;
             }
 
-            if (personaje.getTraje() != null) {
-                session.remove(personaje.getTraje());
-                personaje.setTraje(null);
-            }
-
-            if (personaje.getParticipaciones() != null) {
-                for (Participa participa : personaje.getParticipaciones()) {
-                    session.remove(participa);
-                }
-                personaje.getParticipaciones().clear();
-            }
-
             if (personaje.getHabilidades() != null) {
                 for (Habilidad hab : personaje.getHabilidades()) {
                     hab.getPersonajes().remove(personaje);
@@ -111,10 +99,12 @@ public class PersonajeR {
             if (personaje.getTraje()!=null){
                 System.out.println("El traje es " + personaje.getTraje().getEspecificacion());
             }
+            System.out.println("/////////////////////////////////////////");
             for (int i = 0; i < personaje.getHabilidades().size(); i++) {
                 Habilidad habilidad=personaje.getHabilidades().get(i);
                 System.out.println("Su habilidad " + habilidad.getNombre());
             }
+            System.out.println("/////////////////////////////////////////");
             for (int i = 0; i < personaje.getParticipaciones().size(); i++) {
                 Participa pa = personaje.getParticipaciones().get(i);
                 System.out.println("El nombre del evento " + pa.getEvento().getNombre());

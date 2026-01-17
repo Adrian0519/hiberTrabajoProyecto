@@ -81,6 +81,7 @@ public class Main {
                     System.out.println("Y su descripcion");
                     String nDesc= scanner.nextLine();
                     habilidadR.modificarHabilidad(idhablidadMod,nNombre,nDesc);
+                    break;
                 case 7:
                     System.out.println("Dime la habilidad que quieres asignar");
                     String habilidadAsignable=scanner.nextLine();
@@ -103,7 +104,7 @@ public class Main {
                 case 9:
                     System.out.println("Dime el nombre del personaje");
                     String asignarTraje=scanner.nextLine();
-                    System.out.println("Que traje le vas a equipar");
+                    System.out.println("Que traje le vas a equipar (si no existe se creara)");
                     String especificacionTraje=scanner.nextLine();
                     trajeR.asignarTraje(especificacionTraje,asignarTraje);
                     break;

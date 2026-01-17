@@ -52,23 +52,4 @@ public class TrajeR {
         }
     }
 
-        //VER SI SE PUEDE IMPLEMENTAR BIEN
-
-    /**
-     *  private void crearTraje(String especificacion,Transaction transaction){
-     *         String sentenciaId="select max(t.id)from Traje t";
-     *         try {
-     *             transaction= session.beginTransaction();
-     *             Integer integer=(Integer)session.createQuery(sentenciaId)
-     *                     .uniqueResult();
-     *             int id=integer+1;
-     *             Traje traje=new Traje(id,especificacion);
-     *             session.persist(traje);
-     *             transaction.commit();
-     *             System.out.println("se creo el traje");
-     *         } catch (Exception e) {
-     *             System.out.println("error en la creacion del traje ");
-     *         }
-     *     }
-     */
 }
